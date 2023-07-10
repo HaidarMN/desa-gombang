@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  html {
+    @apply overflow-x-hidden scroll-smooth;
+  }
+
+  /* Navbar */
+  .navbar {
+    @apply container fixed z-40 grid min-w-full grid-cols-2 items-center justify-items-start bg-white py-4 shadow-md md:grid-cols-3;
+  }
+
+  .navbar-img {
+    @apply max-h-[30px] object-cover object-center;
+  }
+
+  .navbar-dropdown {
+    @apply justify-self-end md:hidden;
+  }
+
+  .navbar-menu {
+    @apply col-span-2 mt-3 w-full flex-col items-start gap-4 justify-self-center md:col-span-1 md:mb-0 md:mt-0 md:!flex md:flex-row md:items-center md:justify-center;
+  }
+
+  .navbar-menu-dropdown {
+    @apply relative flex w-full flex-col items-center space-y-2 md:w-fit md:min-w-max md:space-y-10;
+  }
+
+  .dropdown-menu {
+    @apply flex w-full cursor-pointer flex-row items-center justify-between gap-0.5 hover:fill-[#79E0EE] hover:text-[#79E0EE] md:justify-center;
+  }
+
+  .menu-dropdown-content {
+    @apply left-0 z-50 w-full flex-col gap-2 rounded-xl bg-white px-4 py-4 font-semibold shadow-[0_0_0.75rem_rgba(0,0,0,0.2)] md:absolute md:min-w-max md:text-xl;
+  }
+
+  .navbar-menu-text {
+    @apply cursor-pointer text-lg font-semibold hover:text-[#79E0EE];
+  }
+
+  /* Footer */
+  .footer {
+    @apply container flex min-w-full flex-col flex-wrap items-start gap-4 bg-[#4FCFE0] py-10 lg:flex-row lg:justify-between;
+  }
+
+  .footer-img {
+    @apply flex w-[100px] items-center self-center md:max-w-[250px] lg:w-[150px];
+  }
+
+  .footer-content {
+    @apply flex flex-col gap-2 text-white lg:gap-6;
+  }
+
+  .footer-content .content-title {
+    @apply text-xl font-bold md:text-2xl;
+  }
+
+  .footer-content .content-menu {
+    @apply flex w-full flex-col gap-0 text-sm md:gap-1 lg:w-[230px];
+  }
+
+  .content-menu a.content-contact {
+    @apply underline underline-offset-2;
+  }
+
+  .footer-content .content-follow {
+    @apply flex w-full flex-row items-center gap-4 lg:w-[230px];
+  }
+
+  .content-follow .follow-link {
+    @apply flex items-center justify-center rounded-full bg-white p-1;
+  }
+
+  /* Landing Page */
+  .landing-page {
+    @apply flex flex-col gap-16 pb-10 pt-20;
+  }
+
+  .landing-page-banner {
+    @apply relative left-0 top-0 h-auto w-full bg-cover;
+  }
+
+  .about {
+    @apply container flex min-w-full flex-col items-center gap-4;
+  }
+
+  .about-title {
+    @apply text-center text-2xl font-bold md:text-4xl;
+  }
+
+  .about-text {
+    @apply w-full text-center md:w-[50%];
+  }
+
+  .wisata {
+    @apply container flex min-w-full flex-col items-center gap-6 bg-[#79E0EE] py-10;
+  }
+
+  .wisata-title {
+    @apply text-center text-2xl font-bold text-white md:text-4xl;
+  }
+
+  .wisata-list {
+    @apply flex flex-row flex-wrap justify-center gap-6;
+  }
+
+  .wisata-card {
+    @apply relative h-[141px] w-[250px] md:h-[169px] md:w-[300px] lg:h-[225px] lg:w-[400px];
+  }
+
+  .wisata-card .card-img {
+    @apply h-full w-full rounded-lg object-cover object-center;
+  }
+
+  .wisata-card .card-title {
+    @apply absolute bottom-0 left-0 flex h-full w-full items-center justify-center rounded-lg bg-black/60 px-3 py-1.5 text-center opacity-100 transition-all duration-300 lg:h-0 lg:opacity-0;
+  }
+
+  .card-title span {
+    @apply text-center text-2xl font-semibold text-white md:text-3xl;
+  }
+
+  .events {
+    @apply container flex min-w-full flex-col items-center gap-4;
+  }
+
+  .events-title {
+    @apply text-center text-2xl font-bold md:text-4xl;
+  }
+
+  .events-list {
+    @apply grid w-full grid-cols-1 justify-items-center gap-4 md:grid-cols-3 md:gap-6;
+  }
+
+  .events-card {
+    @apply relative h-[141px] w-[250px] md:h-[250px] md:w-full;
+  }
+
+  .events-card.main {
+    @apply w-[250px] md:col-span-3 md:w-full;
+  }
+
+  .events-card .card-img {
+    @apply h-[141px] w-full rounded-lg object-cover object-center brightness-75 md:h-full;
+  }
+
+  .events-card .card-title {
+    @apply absolute inset-0 flex h-full w-full items-center justify-center text-center text-xl font-semibold text-white lg:text-3xl;
+  }
+
+  .events-more {
+    @apply flex h-[141px] w-[250px] flex-row items-center justify-center gap-1 rounded-lg border-2 border-[#79E0EE] hover:bg-[#79E0EE] md:h-[250px] md:w-full;
+  }
+
+  .events-more .more-text {
+    @apply px-1 text-center text-xl font-semibold text-[#79E0EE] lg:text-3xl;
+  }
+
+  .news {
+    @apply !container flex min-w-full flex-col items-center gap-4;
+  }
+
+  .news-title {
+    @apply text-2xl font-bold md:text-4xl;
+  }
+
+  .swiper {
+    @apply h-[141px] w-[250px] md:h-[250px] md:w-full;
+  }
+
+  .swiper .swiper-slide {
+    @apply relative;
+  }
+
+  .swiper-slide a .swiper-img {
+    @apply h-[141px] w-full rounded-lg brightness-75 md:h-full;
+  }
+
+  .swiper-slide a .swiper-title {
+    @apply absolute inset-0 flex h-full w-full items-center justify-center text-center text-xl font-semibold text-white lg:text-3xl;
+  }
+
+  .news-more {
+    @apply text-xs font-medium text-black/75 hover:text-[#79E0EE] md:text-sm;
+  }
+
+  /* Wisata Landing */
+  .wisata-landing {
+    @apply container flex min-w-full flex-col items-center justify-center gap-10 pb-10 pt-28;
+  }
+
+  .wisata-landing-title {
+    @apply text-2xl font-bold capitalize md:text-4xl;
+  }
+
+  .wisata-landing-list {
+    @apply grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .wisata-landing-card {
+    @apply relative h-[141px] w-full md:h-[169px] lg:h-[225px];
+  }
+
+  .wisata-landing-card .landing-card-img {
+    @apply h-full w-full rounded-lg object-cover object-center brightness-75 transition-all;
+  }
+
+  .wisata-landing-card .landing-card-title {
+    @apply absolute inset-0 flex h-full w-full items-center justify-center text-center text-xl font-semibold text-white lg:text-3xl;
+  }
+
+  /* Detail Wisata */
+  .wisata-detail {
+    @apply container flex min-w-full flex-col justify-center gap-8 pb-10 pt-28;
+  }
+
+  .wisata-detail-title {
+    @apply flex flex-col gap-2;
+  }
+
+  .wisata-detail-subtitle {
+    @apply text-sm font-medium uppercase text-gray-400 md:text-xl;
+  }
+
+  .wisata-detail-maintitle {
+    @apply text-2xl font-bold capitalize md:text-4xl;
+  }
+
+  .wisata-detail-content {
+    @apply flex flex-col gap-4;
+  }
+
+  .wisata-detail-content .detail-wisata-gallery {
+    @apply mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .detail-wisata-gallery .gallery-img {
+    @apply h-[141px] w-full rounded-lg object-cover object-center md:h-[169px] lg:h-[225px];
+  }
+
+  /* Profile */
+  .profile {
+    @apply container flex min-w-full flex-col justify-center gap-10 pb-10 pt-28;
+  }
+
+  .profile-title {
+    @apply text-2xl font-bold capitalize md:text-4xl;
+  }
+
+  .profile-content {
+    @apply flex flex-col gap-4;
+  }
+
+  .profile-subtitle {
+    @apply text-lg font-bold md:text-2xl;
+  }
+
+  .profile-misi {
+    @apply list-inside list-decimal;
+  }
+
+  .profile-contact {
+    @apply flex flex-row items-center gap-2;
+  }
+
+  /* Organisasi */
+  .organisasi {
+    @apply container flex min-w-full flex-col justify-center gap-10 pb-10 pt-28;
+  }
+
+  .organisasi-title {
+    @apply text-center text-2xl font-bold capitalize md:text-4xl;
+  }
+
+  .organisasi-panel {
+    @apply flex w-full flex-col gap-6 lg:flex-row;
+  }
+
+  .organisasi-left {
+    @apply flex h-fit flex-col text-left lg:w-1/5 lg:text-right;
+  }
+
+  .ol-border {
+    @apply cursor-pointer border-l border-gray-400 py-1.5 pl-2 text-lg text-gray-400 lg:border-l-0 lg:border-r lg:pr-2;
+  }
+
+  .ol-border.active {
+    @apply border-l-2 border-[#79E0EE] lg:border-l-0 lg:border-r-2;
+  }
+
+  .ol-border.active span {
+    @apply text-[#79E0EE];
+  }
+
+  .organisasi-right {
+    @apply lg:w-4/5;
+  }
+
+  .organisasi-content {
+    @apply flex flex-col gap-2;
+  }
+
+  .organisasi-subtitle {
+    @apply text-lg font-bold md:text-2xl;
+  }
+
+  .organisasi-list {
+    @apply grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .organisasi-list .list-content {
+    @apply flex w-full flex-col items-center gap-2 rounded-lg bg-white p-2 px-4 shadow-md;
+  }
+
+  .list-content .list-content-img {
+    @apply h-[100px] w-[100px] rounded-full;
+  }
+
+  .list-content .list-content-text {
+    @apply flex flex-col items-center gap-0.5;
+  }
+
+  .list-content-text .list-content-name {
+    @apply text-lg font-semibold capitalize;
+  }
+
+  .list-content-text .list-content-position {
+    @apply text-sm capitalize text-gray-400;
+  }
+}
