@@ -36,7 +36,32 @@ const router = createRouter({
       name: "Struktur Organisasi",
       component: () => import("../components/profile/StrukturOrganisasi.vue"),
     },
+
+    // Acara
+    {
+      path: "/desa_wisata/acara",
+      name: "Acara",
+      component: () => import("../components/acara/Acara.vue"),
+    },
+    {
+      path: "/desa_wisata/acara/:acara",
+      name: "Acara Detail",
+      component: () => import("../components/acara/AcaraDetail.vue"),
+    },
+
+    // Berita
+    {
+      path: "/desa_wisata/berita",
+      name: "Berita",
+      component: () => import("../components/berita/Berita.vue"),
+    },
+    {
+      path: "/desa_wisata/berita/:berita",
+      name: "Berita Detail",
+      component: () => import("../components/berita/BeritaDetail.vue"),
+    },
   ],
+  base: "/desa_wisata",
 });
 
 router.beforeEach(async (to, from, next) => {

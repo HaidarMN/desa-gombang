@@ -18,7 +18,10 @@
       <router-link
         v-for="wst in wisata"
         :key="wst"
-        :to="{ path: '/desa_wisata/wisata-' + tipe + '/' + wst.name }"
+        :to="{
+          name: 'Detail Wisata',
+          params: { tipe_wisata: tipe, wisata: wst.name },
+        }"
         class="wisata-landing-card"
       >
         <img :src="wst.img" :alt="wst.name" class="landing-card-img" />

@@ -50,7 +50,7 @@
   }
 
   .footer-content {
-    @apply flex flex-col gap-2 text-white lg:gap-6;
+    @apply flex flex-col gap-2 text-white lg:gap-4;
   }
 
   .footer-content .content-title {
@@ -188,7 +188,7 @@
 
   /* Wisata Landing */
   .wisata-landing {
-    @apply container flex min-w-full flex-col items-center justify-center gap-10 pb-10 pt-28;
+    @apply container flex min-w-full flex-col justify-center gap-10 pb-10 pt-28;
   }
 
   .wisata-landing-title {
@@ -267,11 +267,19 @@
 
   /* Organisasi */
   .organisasi {
-    @apply container flex min-w-full flex-col justify-center gap-10 pb-10 pt-28;
+    @apply container flex min-w-full flex-col justify-center gap-8 pb-10 pt-28;
   }
 
   .organisasi-title {
-    @apply text-center text-2xl font-bold capitalize md:text-4xl;
+    @apply flex flex-col gap-2;
+  }
+
+  .organisasi-title .organisasi-subtitle {
+    @apply text-sm font-medium uppercase text-gray-400 md:text-xl;
+  }
+
+  .organisasi-title .organisasi-maintitle {
+    @apply text-2xl font-bold capitalize md:text-4xl;
   }
 
   .organisasi-panel {
@@ -283,7 +291,7 @@
   }
 
   .ol-border {
-    @apply cursor-pointer border-l border-gray-400 py-1.5 pl-2 text-lg text-gray-400 lg:border-l-0 lg:border-r lg:pr-2;
+    @apply cursor-pointer border-l border-gray-400 py-1.5 pl-2 text-lg text-gray-400 lg:border-l-0 lg:border-r lg:pl-0 lg:pr-2;
   }
 
   .ol-border.active {
@@ -323,10 +331,130 @@
   }
 
   .list-content-text .list-content-name {
-    @apply text-lg font-semibold capitalize;
+    @apply text-center text-lg font-semibold capitalize;
   }
 
   .list-content-text .list-content-position {
     @apply text-sm capitalize text-gray-400;
+  }
+
+  /* Acara */
+  .acara {
+    @apply container flex min-w-full flex-col justify-center gap-10 pb-10 pt-28;
+  }
+
+  .acara-title {
+    @apply text-2xl font-bold capitalize md:text-4xl;
+  }
+
+  .acara-list {
+    @apply grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .acara-content {
+    @apply flex h-fit flex-col gap-4 rounded-lg bg-white shadow-[0_0_0.5rem_rgba(0,0,0,0.2)] hover:shadow-[0_0_1rem_rgba(0,0,0,0.2)];
+  }
+
+  .acara-img {
+    @apply h-[141px] w-full rounded-t-lg object-cover object-center md:h-[169px] lg:h-[225px];
+  }
+
+  .acara-text {
+    @apply flex flex-col px-4 pb-4;
+  }
+
+  .acara-text .text-title {
+    @apply h-[100px] text-2xl font-semibold capitalize;
+  }
+
+  .acara-text .text-date {
+    @apply text-sm font-medium md:text-base;
+  }
+
+  .acara-text .text-more {
+    @apply mt-4 rounded-lg border border-[#79E0EE] py-2.5 text-center text-sm font-medium text-[#79E0EE] hover:bg-[#79E0EE] hover:text-white md:text-base;
+  }
+
+  /* Acara Detail */
+  .acara-detail {
+    @apply container flex min-w-full flex-col justify-center gap-8 pb-10 pt-28;
+  }
+
+  .acara-detail-title {
+    @apply flex flex-col gap-2;
+  }
+
+  .acara-detail-subtitle {
+    @apply text-sm font-medium uppercase text-gray-400 md:text-xl;
+  }
+
+  .acara-detail-maintitle {
+    @apply text-2xl font-bold capitalize md:text-4xl;
+  }
+
+  .acara-detail-content {
+    @apply flex flex-col gap-4;
+  }
+
+  .acara-detail-content .detail-content-img {
+    @apply mx-auto mt-4 w-1/2;
+  }
+
+  /* Berita */
+  .berita {
+    @apply container flex min-w-full flex-col justify-center gap-10 pb-10 pt-28;
+  }
+
+  .berita-title {
+    @apply text-2xl font-bold capitalize md:text-4xl;
+  }
+
+  .berita-list {
+    @apply grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .berita-content {
+    @apply flex h-fit flex-col gap-4 rounded-lg bg-white shadow-[0_0_0.5rem_rgba(0,0,0,0.2)] hover:shadow-[0_0_1rem_rgba(0,0,0,0.2)];
+  }
+
+  .berita-img {
+    @apply h-[141px] w-full rounded-t-lg object-cover object-center md:h-[169px] lg:h-[225px];
+  }
+
+  .berita-text {
+    @apply flex flex-col px-4 pb-4;
+  }
+
+  .berita-text .text-title {
+    @apply h-[100px] text-2xl font-semibold capitalize leading-tight;
+  }
+
+  .berita-text .text-paragraph {
+    @apply line-clamp-3;
+  }
+
+  /* Berita Detail */
+  .berita-detail {
+    @apply container flex min-w-full flex-col justify-center gap-8 pb-10 pt-28;
+  }
+
+  .berita-detail-title {
+    @apply flex flex-col gap-2;
+  }
+
+  .berita-detail-subtitle {
+    @apply text-sm font-medium uppercase text-gray-400 md:text-xl;
+  }
+
+  .berita-detail-maintitle {
+    @apply text-2xl font-bold capitalize md:text-4xl;
+  }
+
+  .berita-detail-content {
+    @apply flex flex-col gap-4;
+  }
+
+  .berita-detail-content .detail-content-img {
+    @apply mx-auto mt-4 w-1/2;
   }
 }

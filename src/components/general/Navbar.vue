@@ -2,13 +2,9 @@
   <div class="navbar">
     <router-link
       @click="(show = !show), (wisata = false), (tentangKami = false)"
-      to="/desa_wisata"
+      :to="{ name: 'Landing Page' }"
     >
-      <img
-        src="../../assets/general/DakaraLogo.png"
-        alt="logo"
-        class="navbar-img"
-      />
+      <img :src="logo" alt="logo" class="navbar-img" />
     </router-link>
 
     <button
@@ -37,16 +33,12 @@
 
         <div :class="wisata ? 'flex' : 'hidden'" class="menu-dropdown-content">
           <router-link
-            :to="{ path: '/desa_wisata/wisata-budaya' }"
+            v-for="wst in wisataList"
+            :key="wst"
+            :to="{ name: 'Wisata Landing', params: { tipe_wisata: wst.link } }"
             @click="(wisata = !wisata), (show = !show)"
             class="navbar-menu-text"
-            >Wisata Budaya</router-link
-          >
-          <router-link
-            :to="{ path: '/desa_wisata/wisata-religi' }"
-            @click="(wisata = !wisata), (show = !show)"
-            class="navbar-menu-text"
-            >Wisata Religi</router-link
+            >{{ wst.text }}</router-link
           >
         </div>
       </div>
@@ -73,7 +65,7 @@
           <router-link
             v-for="tkl in tentaKamiList"
             :key="tkl"
-            :to="{ path: '/desa_wisata/' + tkl.link }"
+            :to="{ name: tkl.link }"
             @click="(tentangKami = !tentangKami), (show = !show)"
             class="navbar-menu-text"
             >{{ tkl.text }}</router-link
@@ -84,7 +76,7 @@
       <router-link
         v-for="x in menu"
         :key="x"
-        @click="show = !show"
+        @click="(show = !show), (wisata = false), (tentangKami = false)"
         :to="{ name: x.link }"
         class="group"
       >
@@ -95,33 +87,55 @@
 </template>
 
 <script>
+import { db } from "../../firebase/index";
+import { collection, onSnapshot } from "firebase/firestore";
+
 export default {
   data() {
     return {
       menu: [
         {
-          link: "Landing Page",
-          text: "Berita",
+          link: "Acara",
+          text: "Acara",
         },
         {
-          link: "Landing Page",
-          text: "Acara",
+          link: "Berita",
+          text: "Berita",
+        },
+      ],
+      wisataList: [
+        {
+          link: "budaya",
+          text: "Wisata Budaya",
+        },
+        {
+          link: "religi",
+          text: "Wisata Religi",
         },
       ],
       tentaKamiList: [
         {
-          link: "profile",
+          link: "Profile",
           text: "Profil",
         },
         {
-          link: "struktur-organisasi",
+          link: "Struktur Organisasi",
           text: "Struktur Organisasi",
         },
       ],
       show: false,
       wisata: false,
       tentangKami: false,
+      logo: "",
     };
+  },
+
+  mounted() {
+    const logo = onSnapshot(collection(db, "logo"), (querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        this.logo = doc.data().logo;
+      });
+    });
   },
 };
 </script>

@@ -13,13 +13,17 @@
       :modules="modules"
     >
       <swiper-slide v-for="n in news" :key="n">
-        <a href="#">
+        <router-link
+          :to="{ name: 'Berita Detail', params: { berita: n.name } }"
+        >
           <img :src="n.img" :alt="n.name" class="swiper-img" />
           <span class="swiper-title">{{ n.name }}</span>
-        </a>
+        </router-link>
       </swiper-slide>
     </swiper>
-    <a href="#" class="news-more">LIHAT SELENGKAPNYA</a>
+    <router-link :to="{ name: 'Berita' }" class="news-more"
+      >LIHAT SELENGKAPNYA</router-link
+    >
   </div>
 </template>
 
@@ -80,17 +84,16 @@ export default {
       limit(10)
     );
     const ev = onSnapshot(q, (querySnapshot) => {
-      const fbNews = [];
       querySnapshot.forEach((doc) => {
         const news = {
           id: doc.id,
           name: doc.data().nama_berita,
           img: doc.data().gambar_berita,
         };
-        fbNews.push(news);
+        this.news.push(news);
       });
-      this.news = fbNews;
     });
+    console.log(this.news);
   },
 };
 </script>

@@ -1,10 +1,6 @@
 <template>
   <div class="footer">
-    <img
-      src="../../assets/general/DakaraLogo.png"
-      alt="logo"
-      class="footer-img"
-    />
+    <img :src="logo" alt="logo" class="footer-img" />
 
     <div class="footer-content">
       <h1 class="content-title">Hubungi Kami</h1>
@@ -35,9 +31,12 @@
     <div class="footer-content">
       <h1 class="content-title">Lainnya</h1>
       <div class="content-menu">
-        <a href="#" class="content-text">Syarat dan Ketentuan</a>
-        <a href="#" class="content-text">Acara</a>
-        <a href="#" class="content-text">Berita</a>
+        <router-link :to="{ name: 'Acara' }" class="content-text"
+          >Acara</router-link
+        >
+        <router-link :to="{ name: 'Berita' }" class="content-text"
+          >Berita</router-link
+        >
       </div>
     </div>
   </div>
@@ -51,10 +50,16 @@ export default {
   data() {
     return {
       profile: {},
+      logo: "",
     };
   },
 
   mounted() {
+    const logo = onSnapshot(collection(db, "logo"), (querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        this.logo = doc.data().logo;
+      });
+    });
     const pf = onSnapshot(collection(db, "profil"), (querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const profile = {

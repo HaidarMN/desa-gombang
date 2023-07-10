@@ -10,7 +10,7 @@
     </div>
 
     <div class="wisata-detail-content">
-      <hr class="h-1" />
+      <hr class="border-t-2" />
       <p v-for="desc in wisata.desc" :key="desc">{{ desc }}</p>
 
       <div class="detail-wisata-gallery">

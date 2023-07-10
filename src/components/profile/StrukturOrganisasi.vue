@@ -1,6 +1,13 @@
 <template>
   <div class="organisasi">
-    <h1 class="organisasi-title">Struktur Organisasi</h1>
+    <div class="organisasi-title">
+      <h2 class="organisasi-subtitle">Struktur Organisasi</h2>
+      <h1 class="organisasi-maintitle">
+        {{ subtitle }}
+      </h1>
+    </div>
+
+    <hr class="border-t-2" />
 
     <div class="organisasi-panel">
       <div class="organisasi-left">
@@ -29,9 +36,6 @@
 
       <div class="organisasi-right">
         <div v-if="pd" class="organisasi-content">
-          <h2 class="organisasi-subtitle">Pemerintah Desa</h2>
-          <hr class="h-1" />
-
           <div class="organisasi-list">
             <div
               v-for="(pd, index) in pemerintahDesa"
@@ -55,8 +59,6 @@
         </div>
 
         <div v-else-if="bpd" class="organisasi-content">
-          <h2 class="organisasi-subtitle">Badan Permusyawaratan Desa</h2>
-          <hr class="h-1" />
           <div class="organisasi-list">
             <div
               v-for="(bpd, index) in badanPermusyawaratanDesa"
@@ -78,8 +80,6 @@
         </div>
 
         <div v-else class="organisasi-content">
-          <h2 class="organisasi-subtitle">Lembaga Kemasyarakatan Desa</h2>
-          <hr class="h-1" />
           <div class="organisasi-list">
             <div
               v-for="(lkd, index) in lembagaKemasyarakatanDesa"
@@ -117,6 +117,7 @@ export default {
       pd: true,
       bpd: false,
       lkd: false,
+      subtitle: "Pemerintah Desa",
     };
   },
 
@@ -126,14 +127,17 @@ export default {
         this.pd = true;
         this.bpd = false;
         this.lkd = false;
+        this.subtitle = "Pemerintah Desa";
       } else if (category == 2) {
         this.pd = false;
         this.bpd = true;
         this.lkd = false;
+        this.subtitle = "Badan Permusyawaratan Desa";
       } else {
         this.pd = false;
         this.bpd = false;
         this.lkd = true;
+        this.subtitle = "Lembaga Kemasyarakatan Desa";
       }
       console.log(category);
     },

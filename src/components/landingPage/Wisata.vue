@@ -5,7 +5,10 @@
       <router-link
         v-for="bdy in budaya"
         :key="bdy"
-        :to="{ path: '/desa_wisata/wisata-budaya/' + bdy.name }"
+        :to="{
+          name: 'Detail Wisata',
+          params: { tipe_wisata: 'budaya', wisata: bdy.name },
+        }"
         class="wisata-card group"
       >
         <img :src="bdy.img" :alt="bdy.name" class="card-img" />
@@ -22,7 +25,10 @@
       <router-link
         v-for="rlg in religi"
         :key="rlg"
-        :to="{ path: '/desa_wisata/wisata-religi/' + rlg.name }"
+        :to="{
+          name: 'Detail Wisata',
+          params: { tipe_wisata: 'religi', wisata: rlg.name },
+        }"
         class="wisata-card group"
       >
         <img :src="rlg.img" :alt="'wisata ' + rlg.name" class="card-img" />
