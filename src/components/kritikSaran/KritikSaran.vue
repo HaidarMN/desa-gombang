@@ -27,7 +27,7 @@
     </div>
 
     <div class="ks-list">
-      <hr class="border-t-2" />
+      <hr class="border-t" />
       <div v-for="ks in kritikSaran" :key="ks" class="ks-content">
         <span class="ks-content-name">{{ ks.name }}</span>
         <span class="ks-content-text">{{ ks.text }}</span>
