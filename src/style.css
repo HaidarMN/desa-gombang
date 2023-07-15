@@ -480,7 +480,7 @@
   }
 
   .ks-list {
-    @apply flex flex-col;
+    @apply flex flex-col divide-y-2;
   }
 
   .ks-content {
