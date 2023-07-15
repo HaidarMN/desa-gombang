@@ -37,6 +37,9 @@
         <router-link :to="{ name: 'Berita' }" class="content-text"
           >Berita</router-link
         >
+        <router-link :to="{ name: 'Kritik Saran' }" class="content-text"
+          >Kritik Saran</router-link
+        >
       </div>
     </div>
   </div>

@@ -60,6 +60,13 @@ const router = createRouter({
       name: "Berita Detail",
       component: () => import("../components/berita/BeritaDetail.vue"),
     },
+
+    // Kritik Saran
+    {
+      path: "/desa_wisata/kritik-saran",
+      name: "Kritik Saran",
+      component: () => import("../components/kritikSaran/KritikSaran.vue"),
+    },
   ],
   base: "/desa_wisata",
 });

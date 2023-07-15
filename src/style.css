@@ -457,4 +457,37 @@
   .berita-detail-content .detail-content-img {
     @apply mx-auto mt-4 w-1/2;
   }
+
+  /* Kritik Saran */
+  .ks {
+    @apply container flex min-w-full flex-col justify-center gap-8 pb-10 pt-28;
+  }
+
+  .ks-title {
+    @apply text-2xl font-bold md:text-4xl;
+  }
+
+  .ks-form {
+    @apply flex w-full flex-col gap-4;
+  }
+
+  .ks-input {
+    @apply resize-none rounded-lg border-2 border-[#79E0EE] px-3 py-1.5 focus:shadow-[0_0_0.75rem_#79E0EE] focus:outline-none;
+  }
+
+  .ks-btn {
+    @apply float-right w-fit rounded-lg bg-[#79E0EE] px-10 py-2 text-white;
+  }
+
+  .ks-list {
+    @apply flex flex-col;
+  }
+
+  .ks-content {
+    @apply flex flex-col gap-2.5 py-4;
+  }
+
+  .ks-content .ks-content-name {
+    @apply text-xl font-semibold;
+  }
 }
