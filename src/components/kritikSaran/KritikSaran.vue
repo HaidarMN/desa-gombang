@@ -84,7 +84,6 @@ export default {
         this.kritikSaran.push(kritikSaran);
       });
     });
-    console.log(this.kritikSaran);
   },
 };
 </script>

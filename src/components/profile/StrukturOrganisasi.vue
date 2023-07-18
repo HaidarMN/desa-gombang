@@ -45,11 +45,7 @@
               }"
               class="list-content"
             >
-              <img
-                src="../../assets/landingPage/banner.png"
-                alt=""
-                class="list-content-img"
-              />
+              <img :src="pd.img" alt="" class="list-content-img" />
               <div class="list-content-text">
                 <span class="list-content-name">{{ pd.name }}</span>
                 <span class="list-content-position">{{ pd.position }}</span>
@@ -66,11 +62,7 @@
               :class="{ 'md:col-start-1': index == 1 || index == 3 }"
               class="list-content"
             >
-              <img
-                src="../../assets/landingPage/banner.png"
-                alt=""
-                class="list-content-img"
-              />
+              <img :src="bpd.img" alt="" class="list-content-img" />
               <div class="list-content-text">
                 <span class="list-content-name">{{ bpd.name }}</span>
                 <span class="list-content-position">{{ bpd.position }}</span>
@@ -87,11 +79,7 @@
               :class="{ 'md:col-start-1': index == 10 }"
               class="list-content"
             >
-              <img
-                src="../../assets/landingPage/banner.png"
-                alt=""
-                class="list-content-img"
-              />
+              <img :src="lkd.img" alt="" class="list-content-img" />
               <div class="list-content-text">
                 <span class="list-content-name">{{ lkd.name }}</span>
                 <span class="list-content-position">{{ lkd.position }}</span>
@@ -152,7 +140,7 @@ export default {
             id: doc.id,
             name: doc.data().nama,
             position: doc.data().jabatan,
-            img: doc.data().gambar,
+            img: doc.data().foto,
           };
           this.pemerintahDesa.push(pemerintahDesa);
         });
@@ -167,7 +155,7 @@ export default {
             id: doc.id,
             name: doc.data().nama,
             position: doc.data().jabatan,
-            img: doc.data().gambar,
+            img: doc.data().foto,
           };
           this.badanPermusyawaratanDesa.push(badanPermusyawaratanDesa);
         });
@@ -182,7 +170,7 @@ export default {
             id: doc.id,
             name: doc.data().nama,
             position: doc.data().jabatan,
-            img: doc.data().gambar,
+            img: doc.data().foto,
           };
           this.lembagaKemasyarakatanDesa.push(lembagaKemasyarakatanDesa);
         });
