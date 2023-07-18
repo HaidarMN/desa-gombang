@@ -65,6 +65,9 @@ export default {
         isi: this.text,
         waktu: serverTimestamp(),
       });
+      this.name = "";
+      this.text = "";
+      this.date = "";
     },
   },
 
@@ -75,6 +78,7 @@ export default {
       limit(10)
     );
     const ks = onSnapshot(q, (querySnapshot) => {
+      this.kritikSaran = [];
       querySnapshot.forEach((doc) => {
         const kritikSaran = {
           id: doc.id,
