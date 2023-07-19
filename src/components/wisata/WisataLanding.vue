@@ -98,7 +98,7 @@ export default {
       () => {
         if (this.$route.params.tipe_wisata == "budaya") {
           this.wisata = [];
-          this.text = "";
+          this.text = [];
           this.tipe = "";
 
           const q = query(
@@ -129,7 +129,7 @@ export default {
           );
         } else {
           this.wisata = [];
-          this.text = "";
+          this.text = [];
           this.tipe = "";
 
           const q = query(
