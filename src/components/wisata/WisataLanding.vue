@@ -2,7 +2,7 @@
   <div class="wisata-landing">
     <h1 class="wisata-landing-title">Wisata {{ $route.params.tipe_wisata }}</h1>
 
-    <p>{{ text }}</p>
+    <p v-for="txt in text" :key="txt">{{ txt }}</p>
 
     <div class="wisata-landing-list">
       <router-link
@@ -32,7 +32,7 @@ export default {
     return {
       wisata: [],
       tipe: "",
-      text: "",
+      text: [],
     };
   },
 
@@ -42,7 +42,7 @@ export default {
 
       const tb = onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          (this.tipe = doc.data().tipe), (this.text = doc.data().desk);
+          (this.tipe = doc.data().tipe), this.text.push(doc.data().desk);
         });
       });
 
@@ -64,7 +64,7 @@ export default {
 
       const tr = onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          (this.tipe = doc.data().tipe), (this.text = doc.data().desk);
+          (this.tipe = doc.data().tipe), this.text.push(doc.data().desk);
         });
       });
 
@@ -100,7 +100,7 @@ export default {
 
           const tb = onSnapshot(q, (querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              (this.tipe = doc.data().tipe), (this.text = doc.data().desk);
+              (this.tipe = doc.data().tipe), this.text.push(doc.data().desk);
             });
           });
           const wb = onSnapshot(
@@ -128,7 +128,7 @@ export default {
 
           const tr = onSnapshot(q, (querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              (this.tipe = doc.data().tipe), (this.text = doc.data().desk);
+              (this.tipe = doc.data().tipe), this.text.push(doc.data().desk);
             });
           });
 
