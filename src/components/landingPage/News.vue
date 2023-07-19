@@ -93,7 +93,6 @@ export default {
         this.news.push(news);
       });
     });
-    console.log(this.news);
   },
 };
 </script>
