@@ -195,6 +195,10 @@
     @apply text-2xl font-bold capitalize md:text-4xl;
   }
 
+  .wisata-landing-desc {
+    @apply flex flex-col gap-4;
+  }
+
   .wisata-landing-list {
     @apply grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3;
   }

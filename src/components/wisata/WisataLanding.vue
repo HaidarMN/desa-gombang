@@ -2,7 +2,9 @@
   <div class="wisata-landing">
     <h1 class="wisata-landing-title">Wisata {{ $route.params.tipe_wisata }}</h1>
 
-    <p v-for="txt in text" :key="txt">{{ txt }}</p>
+    <div class="wisata-landing-desc">
+      <p v-for="txt in text" :key="txt">{{ txt }}</p>
+    </div>
 
     <div class="wisata-landing-list">
       <router-link
@@ -42,7 +44,10 @@ export default {
 
       const tb = onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          (this.tipe = doc.data().tipe), this.text.push(doc.data().desk);
+          this.tipe = doc.data().tipe;
+          doc.data().desk.forEach((txt) => {
+            this.text.push(txt);
+          });
         });
       });
 
@@ -64,7 +69,10 @@ export default {
 
       const tr = onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          (this.tipe = doc.data().tipe), this.text.push(doc.data().desk);
+          this.tipe = doc.data().tipe;
+          doc.data().desk.forEach((txt) => {
+            this.text.push(txt);
+          });
         });
       });
 
@@ -100,7 +108,10 @@ export default {
 
           const tb = onSnapshot(q, (querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              (this.tipe = doc.data().tipe), this.text.push(doc.data().desk);
+              this.tipe = doc.data().tipe;
+              doc.data().desk.forEach((txt) => {
+                this.text.push(txt);
+              });
             });
           });
           const wb = onSnapshot(
@@ -128,7 +139,10 @@ export default {
 
           const tr = onSnapshot(q, (querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              (this.tipe = doc.data().tipe), this.text.push(doc.data().desk);
+              this.tipe = doc.data().tipe;
+              doc.data().desk.forEach((txt) => {
+                this.text.push(txt);
+              });
             });
           });
 
