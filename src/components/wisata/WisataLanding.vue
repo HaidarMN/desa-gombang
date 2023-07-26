@@ -42,9 +42,10 @@ export default {
     if (this.$route.params.tipe_wisata == "budaya") {
       const q = query(collection(db, "wisata"), where("tipe", "==", "budaya"));
 
+      this.tipe = "budaya";
+
       const tb = onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.tipe = doc.data().tipe;
           doc.data().desk.forEach((txt) => {
             this.text.push(txt);
           });
@@ -67,9 +68,10 @@ export default {
     } else {
       const q = query(collection(db, "wisata"), where("tipe", "==", "religi"));
 
+      this.tipe = "religi";
+
       const tr = onSnapshot(q, (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.tipe = doc.data().tipe;
           doc.data().desk.forEach((txt) => {
             this.text.push(txt);
           });
@@ -99,8 +101,7 @@ export default {
         if (this.$route.params.tipe_wisata == "budaya") {
           this.wisata = [];
           this.text = [];
-          this.tipe = "";
-
+          this.tipe = "budaya";
           const q = query(
             collection(db, "wisata"),
             where("tipe", "==", "budaya")
@@ -108,7 +109,6 @@ export default {
 
           const tb = onSnapshot(q, (querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              this.tipe = doc.data().tipe;
               doc.data().desk.forEach((txt) => {
                 this.text.push(txt);
               });
@@ -130,7 +130,7 @@ export default {
         } else {
           this.wisata = [];
           this.text = [];
-          this.tipe = "";
+          this.tipe = "religi";
 
           const q = query(
             collection(db, "wisata"),
@@ -139,7 +139,6 @@ export default {
 
           const tr = onSnapshot(q, (querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              this.tipe = doc.data().tipe;
               doc.data().desk.forEach((txt) => {
                 this.text.push(txt);
               });

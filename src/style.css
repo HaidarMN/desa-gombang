@@ -261,8 +261,8 @@
     @apply text-lg font-bold md:text-2xl;
   }
 
-  .profile-misi {
-    @apply list-inside list-decimal;
+  .profile-list {
+    @apply list-inside list-disc;
   }
 
   .profile-contact {

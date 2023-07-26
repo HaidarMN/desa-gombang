@@ -14,9 +14,18 @@
 
     <div class="profile-content">
       <h2 class="profile-subtitle">Misi</h2>
-      <ol class="profile-misi">
+      <ol class="profile-list">
         <li v-for="misi in profile.misi" :key="misi">{{ misi }}</li>
       </ol>
+    </div>
+
+    <div class="profile-content">
+      <h2 class="profile-subtitle">Batas Wilayah</h2>
+      <ul class="profile-list">
+        <li v-for="bw in batasWilayah" :key="bw">
+          {{ bw.arah }}: {{ bw.batas }}
+        </li>
+      </ul>
     </div>
 
     <div class="profile-content">
@@ -45,6 +54,7 @@ export default {
   data() {
     return {
       profile: {},
+      batasWilayah: [],
     };
   },
 
@@ -61,6 +71,17 @@ export default {
           telp: doc.data().no_telp,
         };
         this.profile = profile;
+      });
+    });
+
+    const bw = onSnapshot(collection(db, "batas_wilayah"), (querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const bw = {
+          id: doc.id,
+          arah: doc.data().arah,
+          batas: doc.data().batas,
+        };
+        this.batasWilayah.push(bw);
       });
     });
   },
