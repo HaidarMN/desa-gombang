@@ -78,8 +78,17 @@
     @apply flex flex-col gap-16 pb-10 pt-20;
   }
 
-  .landing-page-banner {
-    @apply relative left-0 top-0 h-auto w-full bg-cover;
+  .landing-page .swiper {
+    @apply h-[200px] w-full md:h-[400px] lg:h-[680px];
+  }
+
+  .landing-page .swiper .landing-page-banner {
+    @apply relative left-0 top-0 h-full w-full object-cover;
+  }
+
+  .landing-page .swiper-button-prev::after,
+  .landing-page .swiper-button-next::after {
+    @apply text-lg md:text-3xl lg:text-6xl;
   }
 
   .about {
@@ -119,7 +128,7 @@
   }
 
   .card-title span {
-    @apply text-center text-2xl font-semibold text-white md:text-3xl;
+    @apply text-center text-2xl font-semibold capitalize text-white md:text-3xl;
   }
 
   .events {
@@ -166,19 +175,19 @@
     @apply text-2xl font-bold md:text-4xl;
   }
 
-  .swiper {
+  .news .swiper {
     @apply h-[141px] w-[250px] md:h-[250px] md:w-full;
   }
 
-  .swiper .swiper-slide {
+  .news .swiper .swiper-slide {
     @apply relative;
   }
 
-  .swiper-slide a .swiper-img {
+  .news .swiper-slide a .swiper-img {
     @apply h-[141px] w-full rounded-lg brightness-75 md:h-full;
   }
 
-  .swiper-slide a .swiper-title {
+  .news .swiper-slide a .swiper-title {
     @apply absolute inset-0 flex h-full w-full items-center justify-center text-center text-xl font-semibold text-white lg:text-3xl;
   }
 
@@ -263,6 +272,19 @@
 
   .profile-list {
     @apply list-inside list-disc;
+  }
+
+  .profile-table {
+    @apply table-auto;
+  }
+
+  .profile-table th,
+  .profile-table td {
+    @apply px-4 py-1.5 text-left;
+  }
+
+  .profile-table tbody tr {
+    @apply border-collapse border-y border-gray-400;
   }
 
   .profile-contact {

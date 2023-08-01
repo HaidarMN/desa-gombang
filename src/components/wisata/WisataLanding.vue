@@ -65,7 +65,7 @@ export default {
           });
         }
       );
-    } else {
+    } else if (this.$route.params.tipe_wisata == "religi") {
       const q = query(collection(db, "wisata"), where("tipe", "==", "religi"));
 
       this.tipe = "religi";
@@ -88,6 +88,61 @@ export default {
               img: doc.data().gambar_wisata,
             };
             this.wisata.push(religi);
+          });
+        }
+      );
+    } else if (this.$route.params.tipe_wisata == "kesenian") {
+      const q = query(
+        collection(db, "wisata"),
+        where("tipe", "==", "kesenian")
+      );
+
+      this.tipe = "kesenian";
+
+      const tk = onSnapshot(q, (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          doc.data().desk.forEach((txt) => {
+            this.text.push(txt);
+          });
+        });
+      });
+
+      const wk = onSnapshot(
+        collection(db, "wisata_kesenian"),
+        (querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            const kesenian = {
+              id: doc.id,
+              name: doc.data().nama_wisata,
+              img: doc.data().gambar_wisata,
+            };
+            this.wisata.push(kesenian);
+          });
+        }
+      );
+    } else {
+      const q = query(collection(db, "wisata"), where("tipe", "==", "makanan"));
+
+      this.tipe = "makanan";
+
+      const tm = onSnapshot(q, (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          doc.data().desk.forEach((txt) => {
+            this.text.push(txt);
+          });
+        });
+      });
+
+      const wm = onSnapshot(
+        collection(db, "wisata_makanan"),
+        (querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            const makanan = {
+              id: doc.id,
+              name: doc.data().nama_wisata,
+              img: doc.data().gambar_wisata,
+            };
+            this.wisata.push(makanan);
           });
         }
       );
@@ -127,7 +182,7 @@ export default {
               });
             }
           );
-        } else {
+        } else if (this.$route.params.tipe_wisata == "religi") {
           this.wisata = [];
           this.text = [];
           this.tipe = "religi";
@@ -155,6 +210,68 @@ export default {
                   img: doc.data().gambar_wisata,
                 };
                 this.wisata.push(religi);
+              });
+            }
+          );
+        } else if (this.$route.params.tipe_wisata == "kesenian") {
+          this.wisata = [];
+          this.text = [];
+          this.tipe = "kesenian";
+
+          const q = query(
+            collection(db, "wisata"),
+            where("tipe", "==", "kesenian")
+          );
+
+          const tk = onSnapshot(q, (querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              doc.data().desk.forEach((txt) => {
+                this.text.push(txt);
+              });
+            });
+          });
+
+          const wk = onSnapshot(
+            collection(db, "wisata_kesenian"),
+            (querySnapshot) => {
+              querySnapshot.forEach((doc) => {
+                const kesenian = {
+                  id: doc.id,
+                  name: doc.data().nama_wisata,
+                  img: doc.data().gambar_wisata,
+                };
+                this.wisata.push(kesenian);
+              });
+            }
+          );
+        } else {
+          this.wisata = [];
+          this.text = [];
+          this.tipe = "makanan";
+
+          const q = query(
+            collection(db, "wisata"),
+            where("tipe", "==", "makanan")
+          );
+
+          const tm = onSnapshot(q, (querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              doc.data().desk.forEach((txt) => {
+                this.text.push(txt);
+              });
+            });
+          });
+
+          const wm = onSnapshot(
+            collection(db, "wisata_makanan"),
+            (querySnapshot) => {
+              querySnapshot.forEach((doc) => {
+                const makanan = {
+                  id: doc.id,
+                  name: doc.data().nama_wisata,
+                  img: doc.data().gambar_wisata,
+                };
+                this.wisata.push(makanan);
               });
             }
           );

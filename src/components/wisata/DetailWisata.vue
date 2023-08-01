@@ -54,7 +54,7 @@ export default {
           this.wisata = budaya;
         });
       });
-    } else {
+    } else if (this.$route.params.tipe_wisata == "religi") {
       const q = query(
         collection(db, "wisata_religi"),
         where("nama_wisata", "==", this.$route.params.wisata)
@@ -69,6 +69,40 @@ export default {
             gallery: doc.data().galeri_wisata,
           };
           this.wisata = religi;
+        });
+      });
+    } else if (this.$route.params.tipe_wisata == "kesenian") {
+      const q = query(
+        collection(db, "wisata_kesenian"),
+        where("nama_wisata", "==", this.$route.params.wisata)
+      );
+      const wk = onSnapshot(q, (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const kesenian = {
+            id: doc.id,
+            name: doc.data().nama_wisata,
+            img: doc.data().gambar_wisata,
+            desc: doc.data().desk_wisata,
+            gallery: doc.data().galeri_wisata,
+          };
+          this.wisata = kesenian;
+        });
+      });
+    } else {
+      const q = query(
+        collection(db, "wisata_makanan"),
+        where("nama_wisata", "==", this.$route.params.wisata)
+      );
+      const wm = onSnapshot(q, (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const makanan = {
+            id: doc.id,
+            name: doc.data().nama_wisata,
+            img: doc.data().gambar_wisata,
+            desc: doc.data().desk_wisata,
+            gallery: doc.data().galeri_wisata,
+          };
+          this.wisata = makanan;
         });
       });
     }

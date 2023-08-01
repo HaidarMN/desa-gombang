@@ -94,10 +94,10 @@ export default {
   data() {
     return {
       menu: [
-        {
-          link: "Acara",
-          text: "Acara",
-        },
+        // {
+        //   link: "Acara",
+        //   text: "Acara",
+        // },
         {
           link: "Berita",
           text: "Berita",
@@ -111,6 +111,14 @@ export default {
         {
           link: "religi",
           text: "Wisata Religi",
+        },
+        {
+          link: "kesenian",
+          text: "Wisata Kesenian",
+        },
+        {
+          link: "makanan",
+          text: "Wisata Makanan",
         },
       ],
       tentaKamiList: [

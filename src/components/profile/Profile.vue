@@ -29,6 +29,40 @@
     </div>
 
     <div class="profile-content">
+      <h2 class="profile-subtitle">Jumlah Penduduk</h2>
+      <table class="profile-table">
+        <thead>
+          <tr>
+            <th>RT</th>
+            <th>Laki-Laki</th>
+            <th>Perempuan</th>
+            <th>L+P</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="jp in jumlahPenduduk" :key="jp">
+            <td>{{ jp.rt }}</td>
+            <td>{{ jp.lk }}</td>
+            <td>{{ jp.pr }}</td>
+            <td>{{ jmlhLP(jp.lk, jp.pr) }}</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td>
+              <strong>{{ jumlahLaki }}</strong>
+            </td>
+            <td>
+              <strong>{{ jumlahPerempuan }}</strong>
+            </td>
+            <td>
+              <strong>{{ totalJumlah }}</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="profile-content">
       <h2 class="profile-subtitle">Hubungi Kami</h2>
       <div class="profile-contact">
         <box-icon name="map"></box-icon>
@@ -55,7 +89,17 @@ export default {
     return {
       profile: {},
       batasWilayah: [],
+      jumlahPenduduk: [],
+      jumlahLaki: 0,
+      jumlahPerempuan: 0,
+      totalJumlah: 0,
     };
+  },
+
+  methods: {
+    jmlhLP: function (l, p) {
+      return parseInt(l) + parseInt(p);
+    },
   },
 
   mounted() {
@@ -84,6 +128,24 @@ export default {
         this.batasWilayah.push(bw);
       });
     });
+
+    const jp = onSnapshot(
+      collection(db, "jumlah_penduduk"),
+      (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const jp = {
+            id: doc.id,
+            rt: doc.data().rt,
+            lk: doc.data().laki,
+            pr: doc.data().perempuan,
+          };
+          this.jumlahPenduduk.push(jp);
+          this.jumlahLaki += parseInt(doc.data().laki);
+          this.jumlahPerempuan += parseInt(doc.data().perempuan);
+        });
+        this.totalJumlah = this.jumlahLaki + this.jumlahPerempuan;
+      }
+    );
   },
 };
 </script>

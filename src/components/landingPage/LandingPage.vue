@@ -3,7 +3,7 @@
     <Banner />
     <About />
     <Wisata />
-    <Events />
+    <!-- <Events /> -->
     <News />
   </div>
 </template>
